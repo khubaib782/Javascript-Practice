@@ -55,3 +55,34 @@ Reverses the elements of a given array of integers of length 3.
 Count Vowels in a String:
 
 Counts the number of vowels in a given string.
+
+Count Vowels in a String
+
+Counts the number of vowels in a given string.
+Find Longest String in an Array
+
+Finds the longest string from a given array of strings.
+Divide Array and Compute Sum of Parts
+
+Divides a given array of positive integers into two parts and computes the sum of each part.
+Maximum Difference Between Adjacent Elements
+
+Finds the maximum difference between any two adjacent elements in a given array of integers.
+Maximum Difference Among All Possible Pairs
+
+Finds the maximum difference among all possible pairs of a given array of integers.
+Replace Numbers in an Array
+
+Replaces all occurrences of a specified number with another number in an array of integers.
+Sum of Absolute Differences in an Array
+
+Computes the sum of the absolute differences of consecutive numbers in a given array of integers.
+Number of Sorted Pairs in an Array
+
+Finds the number of sorted pairs formed by arrays of integers where one element in the pair is divisible by the other.
+Error Handling
+
+Contains error handling functions for custom error messages.
+Sum of Arrays
+
+Computes the sum of each individual index value from two given arrays.
