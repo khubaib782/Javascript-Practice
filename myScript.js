@@ -46,20 +46,20 @@ let area = Math.sqrt(s * ((s - a) * (s - b) * (s - c)));
 console.log(area);
 
 //Q4 Write a JavaScript program to rotate the string 'w3resource' in the right direction.
-// This is done by periodically removing one letter from the string end and attaching it to the front
+//This is done by periodically removing one letter from the string end and attaching it to the front
 
-var myVar = setInterval(myFunction, 1000);
+// var myVar = setInterval(myFunction, 1000);
 
-var word = "w3resource";
-var newArray = word.split("");
+// var word = "w3resource";
+// var newArray = word.split("");
 
-function myFunction() {
-  var letter = newArray.pop();
-  var newWord = newArray.unshift(letter);
-  var theWord = newArray.join("");
-  console.log(theWord);
-  document.getElementById("rotate").innerHTML = theWord;
-}
+// function myFunction() {
+//   var letter = newArray.pop();
+//   var newWord = newArray.unshift(letter);
+//   var theWord = newArray.join("");
+//   console.log(theWord);
+//   document.getElementById("rotate").innerHTML = theWord;
+// }
 
 // Q5 Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar.
 function leapyear(year) {
@@ -81,16 +81,16 @@ for (let year = 2014; year <= 2050; year++) {
 // Q7 Write a JavaScript program where the program takes a random integer between 1 and 10, and the user is then prompted to input a guess number.
 //The program displays a message "Good Work" if the input matches the guess number otherwise "Not matched".
 
-const randomNumber = Math.ceil(Math.random() * 10);
-console.log(randomNumber);
+// const randomNumber = Math.ceil(Math.random() * 10);
+// console.log(randomNumber);
 
-let guessNum = prompt("Guess the number between 1 and 10");
+// let guessNum = prompt("Guess the number between 1 and 10");
 
-if (guessNum == randomNumber) {
-  alert("Good work");
-} else {
-  alert("Not Matched");
-}
+// if (guessNum == randomNumber) {
+//   alert("Good work");
+// } else {
+//   alert("Not Matched");
+// }
 
 // Q8 Write a JavaScript program to calculate multiplication and division of two numbers (input from the user).
 
@@ -263,5 +263,179 @@ function vowels(vowelsStr) {
 
 console.log(vowels("hello how are you"));
 
-// Q 19 Write a JavaScript program to replace each character in a given string with the next in the English alphabet.
-// Note: 'a' will be replace by 'b' or 'z' would be replaced by 'a'.
+// Q 19 Write a JavaScript program to find the longest string from a given array of strings.
+
+function longestString() {
+  let longestStr = "";
+  let longArr = ["Khubaib", "Ali", "Ahmad", "Hassan"];
+
+  for (let i = 0; i < longArr.length; i++) {
+    if (longArr.length > longestStr.length) {
+      longestStr = longArr[i];
+    }
+  }
+  return longestStr;
+}
+
+console.log(longestString());
+
+// Q 20 Write a JavaScript program to divide a given array of positive integers into two parts.
+// First element belongs to the first part, second element belongs to the second part, and third
+// element belongs to the first part and so on. Now compute the sum of two parts and store it in
+// an array of size two.
+
+function divideArray() {
+  let divArr = [6, 4, 3, 7, 5, 4];
+  let firstSum = 0;
+  let secSum = 0;
+
+  for (let i = 0; i < divArr.length; i++) {
+    if (i % 2 === 0) {
+      firstSum += divArr[i];
+    } else {
+      secSum += divArr[i];
+    }
+  }
+  return [firstSum, secSum];
+}
+
+console.log(divideArray());
+
+// Q 21 Write a JavaScript program to find the maximum difference between any two adjacent elements of a given array of integers.
+
+function findMaxDiff() {
+  let maxArr = [6, 5, 4, 8, 6, 4, 7, 4];
+
+  let maxDiff = Math.abs(maxArr[1] - maxArr[0]);
+
+  for (let i = 1; i < maxArr.length - 1; i++) {
+    let diff = Math.abs(maxArr[i + 1] - maxArr[i]);
+    if (diff > maxDiff) {
+      maxDiff = diff;
+    }
+  }
+  return maxDiff;
+}
+
+console.log(findMaxDiff());
+
+// Q 22 Write a JavaScript program to find the maximum difference among all possible pairs of a given array of integers.
+
+function maxDiffArr() {
+  let arrMax = [6, 3, 9, 1, 7, 4];
+  let maxDiffInArr = 0;
+
+  for (let i = 0; i < arrMax.length - 1; i++) {
+    for (let j = 1; j < arrMax.length; j++) {
+      let diff2 = Math.abs(arrMax[i] - arrMax[j]);
+      maxDiffInArr = Math.max(maxDiffInArr, diff2);
+    }
+  }
+  return maxDiffInArr;
+}
+
+console.log(maxDiffArr());
+
+// Q 23 Write a JavaScript program to replace all numbers with a specified number in an array of integers.
+
+function replaceNum() {
+  let arrRepl = [4, 6, 8, 3, 67, 3, 2];
+  let oldNumber = 67;
+  let replaceWith = 10;
+
+  for (let i = 0; i < arrRepl.length; i++) {
+    if (arrRepl[i] === oldNumber) {
+      arrRepl[i] = replaceWith;
+    }
+  }
+  return arrRepl;
+}
+
+console.log(replaceNum());
+
+// Q 24 Write a JavaScript program to compute the sum of the absolute differences of consecutive numbers in a given array of integers.
+
+function sumAbsoluteDiff() {
+  let absArr = [1, 2, 3, 2, -5];
+  let absDiff = 0;
+
+  for (let i = 0; i < absArr.length - 1; i++) {
+    absDiff += Math.abs(absArr[i] - absArr[i + 1]);
+  }
+  return absDiff;
+}
+
+console.log(sumAbsoluteDiff());
+
+// Q 25 Write a JavaScript program to find the number of sorted pairs formed by arrays of integers. This is such that one element in the pair is divisible by the other one.
+
+function sortedPairNums(sortArr) {
+  let count = 0;
+
+  for (let i = 0; i < sortArr.length; i++) {
+    for (let j = i + 1; j < sortArr.length; j++) {
+      if (sortArr[i] % sortArr[j] === 0 || sortArr[j] % sortArr[i] === 0) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
+console.log(sortedPairNums([1, 2, 3]));
+console.log(sortedPairNums([2, 4, 6]));
+console.log(sortedPairNums([2, 4, 16]));
+
+// Error Handling
+
+// Q 26 Write a JavaScript function that takes a number as a parameter and throws a custom 'Error' if the number is not an integer.
+
+function checkNum(numb) {
+  try {
+    if (!Number.isInteger(numb)) {
+      throw new Error("Number is not an integer");
+    } else {
+      console.log("Number is an integer", numb);
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+console.log(checkNum(9));
+console.log(checkNum(9.14));
+
+// Q 27 Write a JavaScript function that accepts two numbers as parameters and throws a custom 'Error' if the second number is zero.
+
+function twoNumbers(number1, number2) {
+  try {
+    if (number2 === 0) {
+      throw new Error("Error, Division by zero is not possible");
+    } else {
+      return number1 / number2;
+    }
+  } catch (error) {}
+}
+
+// Q 28 There are two arrays with individual values. Write a JavaScript program to compute the sum of each individual index value in the given array.
+// Sample array :
+// array1 = [1,0,2,3,4];
+// array2 = [3,5,6,7,8,13];
+// Expected Output :
+// [4, 5, 8, 10, 12, 13]
+
+function sumOfArrays() {
+  const array1 = [1, 0, 2, 3, 4];
+  const array2 = [3, 5, 6, 7, 8, 13];
+  const result = [];
+
+  let maxLength = Math.max(array1.length, array2.length);
+  for (let i = 0; i < maxLength; i++) {
+    const sum = (array1[i] || 0) + (array2[i] || 0);
+    result.push(sum);
+  }
+
+  return result;
+}
+
+console.log(sumOfArrays());
