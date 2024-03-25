@@ -439,3 +439,271 @@ function sumOfArrays() {
 }
 
 console.log(sumOfArrays());
+
+// Q 29 . Write a JavaScript function that reverses a number.
+// Example x = 32243;
+// Expected Output : 34223
+
+function reverseNumber(numberOne) {
+  let strNum = numberOne.toString();
+
+  let revNum = strNum.split().reverse().join();
+
+  return revNum;
+}
+
+console.log(Number(reverseNumber(5)));
+
+// Q 30 Write a JavaScript function that checks whether a passed string is a palindrome or not?
+
+function palindrome(strOne) {
+  const lowerStr = strOne.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  return lowerStr === lowerStr.split("").reverse().join("");
+}
+
+console.log(palindrome("Hello"));
+console.log(palindrome("Madam"));
+
+//Q 31 Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.
+
+function firstCapitalLetter(brownFoxStr) {
+  let words = brownFoxStr.split(" ");
+
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+  }
+  return words.join(" ");
+}
+
+console.log(firstCapitalLetter("the quick brown fox"));
+
+// Q 32 Write a JavaScript program to calculate the factorial of a number.
+
+function factorial(n) {
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5));
+console.log(factorial(0));
+
+// Q 33 Write a JavaScript program to get integers in the range (x, y) using recursion.
+// Example : range(2, 9)
+// Expected Output : [3, 4, 5, 6, 7, 8]
+
+function range(x1, y1, result = []) {
+  if (x1 >= y1 - 1) {
+    return result;
+  } else {
+    result.push(x1 + 1);
+    return range(x1 + 1, y1, result);
+  }
+}
+
+console.log(range(2, 9));
+
+// Q 33 Write a JavaScript program to compute the exponent of a number.
+// Note: The exponent of a number says how many times the base number is used as a factor.
+// 82 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.
+
+function exponent(a, b) {
+  if (b === 0) {
+    return 1;
+  } else {
+    return a * exponent(a, b - 1);
+  }
+}
+console.log(exponent(4, 2));
+
+// Q 34 Write a JavaScript program to check whether a number is even or not.
+
+function evenNumberCheck(num) {
+  if (num === 0) {
+    return true;
+  }
+  if (num === 1) {
+    return false;
+  }
+
+  return evenNumberCheck(num - 2);
+}
+
+console.log(`is even? ${evenNumberCheck(9)}`);
+console.log(`is even? ${evenNumberCheck(8)}`);
+
+// Q 35 Write a JavaScript conditional statement to find the sign of the product of three numbers. Display an alert box with the specified sign.
+
+let numb1 = 5;
+let numb2 = -3;
+let numb3 = 6;
+
+let product = numb1 * numb2 * numb3;
+
+if (product > 0) {
+  console.log("The sign is positive (+) ");
+} else if (product < 0) {
+  console.log("The sign is negative (-) ");
+} else {
+  console.log("There is no product");
+}
+
+// Q 36 Write a JavaScript program that computes the average marks of the following students. Then, this average is used to determine the corresponding grade.
+
+let students = [
+  ["Ali", 80],
+  ["Ahmad", 90],
+  ["Moeez", 60],
+  ["Ahsan", 50],
+  ["Bilal", 75],
+];
+
+let total = 0;
+
+for (let i = 0; i < students.length; i++) {
+  total += students[i][1];
+}
+let average = total / students.length;
+
+if (average < 60) {
+  console.log("Grade: F");
+} else if (average < 70) {
+  console.log("Grade: D");
+} else if (average < 80) {
+  console.log("Grade: C");
+} else if (average < 90) {
+  console.log("Grade: B");
+} else if (average <= 100) {
+  console.log("Grade: A");
+}
+
+/* Q 37 Write a JavaScript program to construct the following pattern, using a nested for loop.
+ *
+ * *
+ * * *
+ * * * *
+ * * * * *
+
+ */
+
+function printPattern() {
+  let rows = 5;
+  for (let i = 1; i <= rows; i++) {
+    let pattern = "";
+    for (let j = 1; j <= i; j++) {
+      pattern += "*";
+    }
+    console.log(pattern);
+  }
+}
+
+printPattern();
+
+// Q 38 Write a JavaScript program to create a class called "Person" with properties for name, age and country. Include a method to display the person's details. Create two instances of the 'Person' class and display their details.
+
+class Person {
+  constructor(name, age, country) {
+    this.name = name;
+    this.age = age;
+    this.country = country;
+  }
+  details() {
+    console.log(`Name: ${this.name}`);
+    console.log(`Age: ${this.age}`);
+    console.log(`Country: ${this.country}`);
+  }
+}
+
+const person1 = new Person("Khubaib", 22, "Pakistan");
+const person2 = new Person("Ali", 22, "USA");
+
+person1.details();
+person2.details();
+
+// Q 39 Write a JavaScript program to create a class called 'Rectangle' with properties for width and height. Include two methods to calculate rectangle area and perimeter. Create an instance of the 'Rectangle' class and calculate its area and perimeter.
+
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  rectangleArea() {
+    return this.width * this.height;
+  }
+
+  rectanglePerimeter() {
+    return 2 * (this.width + this.height);
+  }
+}
+
+const rectangle = new Rectangle(35, 25);
+
+console.log(rectangle.rectangleArea());
+console.log(rectangle.rectanglePerimeter());
+
+// Q 40 Write a JavaScript program that creates a class called 'Vehicle' with properties for make, model, and year. Include a method to display vehicle details. Create a subclass called 'Car' that inherits from the 'Vehicle' class and includes an additional property for the number of doors. Override the display method to include the number of doors.
+class Vehicle {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  vehicleDetails() {
+    console.log(`Make:${this.make}`);
+    console.log(`Model:${this.model}`);
+    console.log(`Year:${this.year}`);
+  }
+}
+
+class Car extends Vehicle {
+  constructor(make, model, year, doors) {
+    super(make, model, year);
+    this.doors = doors;
+  }
+  vehicleDetails() {
+    super.vehicleDetails();
+    console.log(`Doors:${this.doors}`);
+  }
+}
+
+const vehicle = new Vehicle("Honda", "City", 2019);
+vehicle.vehicleDetails();
+
+const car = new Car("Honda", "Civic", 2024, 4);
+car.vehicleDetails();
+
+// Q 41 Write a JavaScript program that creates a class called "BankAccount" with properties for account number and balance. Include methods to deposit and withdraw money from the account. Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
+
+class BankAccount {
+  constructor(accNum, balance) {
+    this.accNum = accNum;
+    this.balance = balance;
+  }
+  deposit(amount) {
+    this.balance += amount;
+    console.log(`Deposited ${amount} successfully.`);
+  }
+  withdraw(amount) {
+    if (amount > 0 && amount <= this.balance) {
+      this.balance -= amount;
+      console.log(`Withdrawn ${amount} successfully.`);
+    } else {
+      console.log("Incorrect Amount");
+    }
+  }
+  getBalance() {
+    return this.balance;
+  }
+}
+
+const account = new BankAccount("653472", 2000);
+
+account.withdraw(100);
+account.deposit(1000);
+console.log(`Account 1 balance: $${account.getBalance()}`);
+
+// Q 42 Write a JavaScript program that creates a class called 'Shape' with a method to calculate the area. Create two subclasses, 'Circle' and 'Triangle', that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.
