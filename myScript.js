@@ -971,3 +971,376 @@ for (let i = 1; i <= 100; i++) {
     console.log(i);
   }
 }
+
+// Q 55 Write a JavaScript program to sum 3 and 5 multiples under 1000.
+
+function sumMultiples(limit) {
+  let sum = 0;
+
+  for (let i = 1; i < limit; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
+
+const limit = 1000;
+let resultOfMultiple = sumMultiples(limit);
+console.log(
+  "The sum of multiples of 3 and 5 under",
+  limit,
+  "is:",
+  resultOfMultiple
+);
+
+// Q 56  Write a JavaScript program to check a pair of numbers and return true if one of the numbers is 50 or if their sum is 50.
+
+function checkFor50(num1, num2) {
+  return num1 === 50 || num2 === 50 || num1 + num2 === 50;
+}
+
+console.log(checkFor50(25, 50));
+console.log(checkFor50(20, 30));
+console.log(checkFor50(15, 35));
+console.log(checkFor50(50, 50));
+
+// Q 57 Write a JavaScript program to check whether a given integer is within 20 of 100 or 400.
+
+function withinRange(num) {
+  return Math.abs(100 - num) <= 20 || Math.abs(400 - num) <= 20;
+}
+
+console.log(withinRange(80));
+console.log(withinRange(95));
+console.log(withinRange(100));
+console.log(withinRange(120));
+console.log(withinRange(380));
+console.log(withinRange(400));
+console.log(withinRange(420));
+
+// Q 58 Write a JavaScript program to check two given integers whether one is positive and another one is negative.
+
+function checkSigns(num1, num2) {
+  return (num1 > 0 && num2 < 0) || (num1 < 0 && num2 > 0);
+}
+
+console.log(checkSigns(10, -5));
+console.log(checkSigns(-8, 3));
+console.log(checkSigns(-1, -5));
+console.log(checkSigns(6, 8));
+console.log(checkSigns(0, -10));
+
+// Q 59 Write a JavaScript program to create another string from a given string with the first character of the given string added to the front and back.
+
+function addFirstCharToFrontAndBack(str) {
+  if (str.length === 0) {
+    return "Empty string";
+  }
+
+  let firstChar = str.charAt(0);
+  return firstChar + str + firstChar;
+}
+
+console.log(addFirstCharToFrontAndBack("hello"));
+console.log(addFirstCharToFrontAndBack("abc"));
+console.log(addFirstCharToFrontAndBack(""));
+
+// Q 60 Write a JavaScript program to check whether a string starts with 'Java' if it does not otherwise.
+
+function checkStartsWithJava(str) {
+  if (str.startsWith("Java")) {
+    return 'The string starts with "Java".';
+  } else {
+    return 'The string does not start with "Java".';
+  }
+}
+
+console.log(checkStartsWithJava("JavaScript"));
+console.log(checkStartsWithJava("Python"));
+
+// Q 61 Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80.
+
+function computeSumAndReturn(num1, num2) {
+  let sum = num1 + num2;
+
+  if (sum >= 50 && sum <= 80) {
+    return 65;
+  } else {
+    return 80;
+  }
+}
+
+console.log(computeSumAndReturn(30, 20));
+console.log(computeSumAndReturn(10, 30));
+
+// Q 62 Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
+
+function checkForEight(num1, num2) {
+  return (
+    num1 === 8 || num2 === 8 || num1 + num2 === 8 || Math.abs(num1 - num2) === 8
+  );
+}
+
+console.log(checkForEight(3, 5));
+console.log(checkForEight(8, 0));
+
+// Q 63 Write a JavaScript program to check a set of three numbers; if the three numbers are the same return 30; otherwise return 20; and if two numbers are the same return 40.
+
+function checkNumbers(num1, num2, num3) {
+  if (num1 === num2 && num2 === num3) {
+    return 30;
+  } else if (num1 === num2 || num1 === num3 || num2 === num3) {
+    return 40;
+  } else {
+    return 20;
+  }
+}
+
+console.log(checkNumbers(5, 5, 5));
+console.log(checkNumbers(10, 5, 5));
+
+// Q 64 Write a JavaScript program to check from three given numbers (non negative integers) that two or all of them have the same rightmost digit.
+
+function checkRightmostDigit(num1, num2, num3) {
+  const digit1 = num1 % 10;
+  const digit2 = num2 % 10;
+  const digit3 = num3 % 10;
+
+  return digit1 === digit2 || digit1 === digit3 || digit2 === digit3;
+}
+
+console.log(checkRightmostDigit(12, 22, 32));
+console.log(checkRightmostDigit(11, 22, 33));
+
+// Q 65 Write a JavaScript program that evaluates three given integers to determine if any one of them is greater than or equal to 20 and less than at least one of the other two.
+
+function evaluateIntegers(num1, num2, num3) {
+  return (
+    (num1 >= 20 && (num1 < num2 || num1 < num3)) ||
+    (num2 >= 20 && (num2 < num1 || num2 < num3)) ||
+    (num3 >= 20 && (num3 < num1 || num3 < num2))
+  );
+}
+
+console.log(evaluateIntegers(15, 25, 30));
+console.log(evaluateIntegers(10, 5, 25));
+
+// Q 66 Write a JavaScript program that checks two integer values and returns true if either one is 15 or if their sum or difference is 15.
+
+function checkForFifteen(num1, num2) {
+  return (
+    num1 === 15 ||
+    num2 === 15 ||
+    num1 + num2 === 15 ||
+    Math.abs(num1 - num2) === 15
+  );
+}
+
+console.log(checkForFifteen(10, 5));
+console.log(checkForFifteen(15, 10));
+
+// Q 67 Write a JavaScript program to display the city name if the string begins with "Los" or "New" otherwise return blank.
+
+function displayCityName(str) {
+  if (str.startsWith("Los")) {
+    return "Los Angeles";
+  } else if (str.startsWith("New")) {
+    return "New York";
+  } else {
+    return "";
+  }
+}
+
+console.log(displayCityName("Los Angeles"));
+console.log(displayCityName("New Delhi"));
+
+// Q 68 Write a JavaScript program to create a new string using the first and last n characters from a given string. The string length must be larger than or equal to n.
+
+function createNewString(str, n) {
+  if (str.length >= n) {
+    return str.slice(0, n) + str.slice(-n);
+  } else {
+    return "String length is less than n.";
+  }
+}
+
+console.log(createNewString("Hello World", 3));
+console.log(createNewString("JavaScript", 5));
+
+// Q 69 Write a JavaScript program to compute the sum of three elements of a given array of integers of length 3.
+
+function computeSum(arr) {
+  if (arr.length === 3) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return sum;
+  } else {
+    return "Array length should be 3.";
+  }
+}
+
+console.log(computeSum([1, 2, 3]));
+console.log(computeSum([4, 5, 6]));
+
+// Q 70 Write a JavaScript program to create an array taking the middle elements of the two arrays of integer and each length 3.
+
+function getMiddleElements(arr1, arr2) {
+  if (arr1.length !== 3 || arr2.length !== 3) {
+    console.log("Arrays must be of length 3");
+  }
+
+  const middleElements = [arr1[1], arr2[1]];
+  return middleElements;
+}
+
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+const middleArray = getMiddleElements(array1, array2);
+
+console.log("Middle elements array:", middleArray);
+
+// Q 71 Write a JavaScript program to test whether an array of integers of length 2 contains 1 or 3.
+
+function containsOneOrThree(arr) {
+  if (arr.length !== 2) {
+    console.log("Array must be of length 2");
+  }
+
+  return arr.includes(1) || arr.includes(3);
+}
+
+const newArray1 = [1, 2];
+const newArray2 = [4, 5];
+const newArray3 = [3, 7];
+
+console.log("Array 1 contains 1 or 3:", containsOneOrThree(newArray1));
+console.log("Array 2 contains 1 or 3:", containsOneOrThree(newArray2));
+console.log("Array 3 contains 1 or 3:", containsOneOrThree(newArray3));
+
+// Q 72 Write a JavaScript function to split a string and convert it into an array of words.
+// Test Data :
+// console.log(string_to_array("Robin Singh"));
+// ["Robin", "Singh"]
+
+function string_to_array(str) {
+  return str.split(" ");
+}
+
+const testString = "Robin Singh";
+console.log(string_to_array(testString));
+
+// Q 73 Write a JavaScript function to convert a string into abbreviated form.
+// Test Data :
+// console.log(abbrev_name("Robin Singh"));
+// "Robin S."
+
+function abbrev_name(fullName) {
+  const names = fullName.split(" ");
+  if (names.length < 2) {
+    console.log("Full name must contain at least two parts.");
+  }
+
+  const firstName = names[0];
+  const lastNameInitial = names[names.length - 1][0];
+  return `${firstName} ${lastNameInitial}.`;
+}
+
+const fullName = "Robin Singh";
+console.log(abbrev_name(fullName));
+
+// Q 74 Write a JavaScript function to capitalize the first letter of each word in a string.
+// Test Data :
+// console.log(capitalize_Words('js string exercises'));
+// "Js String Exercises"
+
+function capitalize_Words(str) {
+  return str.replace(/\b\w/g, function (char) {
+    return char.toUpperCase();
+  });
+}
+
+const inputString = "js string exercises";
+console.log(capitalize_Words(inputString));
+
+// Q 75 Write a JavaScript function that takes a string with both lowercase and upper case letters as a parameter. It converts upper case letters to lower case, and lower case letters to upper case.
+// Test Data :
+// console.log(swapcase('AaBbc'));
+// "aAbBC"
+
+function swapcase(str) {
+  return str.replace(/[a-zA-Z]/g, function (char) {
+    if (char === char.toUpperCase()) {
+      return char.toLowerCase();
+    } else {
+      return char.toUpperCase();
+    }
+  });
+}
+
+const AbcString = "AaBbc";
+console.log(swapcase(AbcString));
+
+// Q 76 Write a JavaScript function that checks whether a string ends with a specified suffix.
+// Test Data :
+// console.log(string_endsWith('JS PHP PYTHON','PYTHON'));
+// true
+// console.log(string_endsWith('JS PHP PYTHON',''));
+// false
+
+function string_endsWith(str, suffix) {
+  return str.endsWith(suffix);
+}
+
+console.log(string_endsWith("JS PHP PYTHON", "PYTHON"));
+console.log(string_endsWith("JS PHP PYTHON", ""));
+
+// Q 77 Write a JavaScript function to remove non-printable ASCII characters.
+// Test Data :
+// console.log(remove_non_ascii('???????PHP-MySQL??????'));
+// "PHP-MySQL"
+
+function remove_non_ascii(str) {
+  return str.replace(/[^\x20-\x7E]/g, "");
+}
+
+console.log(remove_non_ascii("???????PHP-MySQL??????"));
+
+// Q 78 Write a JavaScript function to test whether the character at the index provided is upper case.
+// Test Data :
+// console.log(isUpperCaseAt('Js STRING EXERCISES', 1));
+// false
+
+function isUpperCaseAt(str, index) {
+  const char = str.charAt(index);
+  return char === char.toUpperCase() && char !== char.toLowerCase();
+}
+
+console.log(isUpperCaseAt("Js STRING EXERCISES", 1));
+
+// Q 79 Write a JavaScript function to test whether the character at the given (character) index is lower case.
+// Test Data :
+// console.log(isLowerCaseAt ('Js STRING EXERCISES', 1));
+// true
+
+function isLowerCaseAt(str, index) {
+  const char = str.charAt(index);
+  return char === char.toLowerCase() && char !== char.toUpperCase();
+}
+
+console.log(isLowerCaseAt("Js STRING EXERCISES", 1));
+
+// Q 80 Write a JavaScript function to test whether a string ends with a specified string.
+// Test Data :
+// console.log(endsWith('JS string exercises', 'exercises'));
+// true
+
+function endsWith(str, suffix) {
+  return str.endsWith(suffix);
+}
+
+console.log(endsWith("JS string exercises", "exercises"));
