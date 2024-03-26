@@ -706,4 +706,268 @@ account.withdraw(100);
 account.deposit(1000);
 console.log(`Account 1 balance: $${account.getBalance()}`);
 
-// Q 42 Write a JavaScript program that creates a class called 'Shape' with a method to calculate the area. Create two subclasses, 'Circle' and 'Triangle', that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.
+/* Q 42 Write a JavaScript program that creates a class called 'Employee' with properties for name and salary. 
+Include a method to calculate annual salary. Create a subclass called 'Manager' that inherits from 
+the 'Employee' class and adds an additional property for department. Override the annual salary
+calculation method to include bonuses for managers. Create two instances of the 'Manager' class 
+and calculate their annual salary.
+*/
+
+class Employee {
+  constructor(name, salary) {
+    this.name = name;
+    this.salary = salary;
+  }
+  annualSalary() {
+    return this.salary * 12;
+  }
+}
+
+class Manager extends Employee {
+  constructor(name, salary, department) {
+    super(name, salary);
+    this.department = department;
+  }
+  annualSalary() {
+    const yearlySalary = super.annualSalary();
+    const bonus = 0.1;
+    return bonus * yearlySalary + yearlySalary;
+  }
+}
+
+const manager1 = new Manager("Khubaib", 30000, "Frontend Developer");
+const salary1 = manager1.annualSalary();
+
+console.log(`Manager: ${manager1.name}`);
+console.log(`Department: ${manager1.department}`);
+console.log(`Salary: ${manager1.salary}`);
+
+const manager2 = new Manager("Ali", 20000, "Backend Developer");
+const salary2 = manager2.annualSalary();
+
+console.log(`Manager: ${manager2.name}`);
+console.log(`Department: ${manager2.department}`);
+console.log(`Salary: ${manager2.salary}`);
+
+/* Q 43 Write a JavaScript program that creates a class `Book` with properties for title, author, 
+and publication year. Include a method to display book details. Create a subclass called 'Ebook' 
+that inherits from the 'Book' class and includes an additional property for book price. Override 
+the display method to include the book price. Create an instance of the 'Ebook' class and display 
+its details.
+*/
+
+class Book {
+  constructor(title, author, publicationYear) {
+    this.title = title;
+    this.author = author;
+    this.publicationYear = publicationYear;
+  }
+  bookDetails() {
+    console.log(`Title: ${this.title}`);
+    console.log(`Author: ${this.author}`);
+    console.log(`Publication Year: ${this.publicationYear}`);
+  }
+}
+
+class Ebook extends Book {
+  constructor(title, author, publicationYear, bookPrice) {
+    super(title, author, publicationYear, bookPrice);
+    this.bookPrice = bookPrice;
+  }
+  bookDetails() {
+    super.bookDetails();
+    console.log(`Book Price: ${this.bookPrice}`);
+  }
+}
+
+const book1 = new Ebook("To Kill a Mockingbird", "Harper Lee", 1960, 2000);
+book1.bookDetails();
+
+// Q 44 Write a JavaScript program that creates a button and add a click event listener to log a message when it's clicked.
+
+const button = document.getElementById("click_btn");
+
+button.addEventListener("click", function () {
+  console.log("Button Clicked");
+});
+
+// Q 45 Write a JavaScript function to clone an array.
+
+function arrayClone(arr) {
+  return [...arr];
+}
+
+console.log(arrayClone([1, 2, 4, 0]));
+console.log(arrayClone([1, 2, [4, 0]]));
+
+// Q 46 Write a JavaScript function to get the last element of an array. Passing the parameter 'n' will return the last 'n' elements of the array.
+
+function last(arr, n = 1) {
+  if (n <= 0) {
+    return [];
+  }
+  return n === 1 ? arr[arr.length - 1] : arr.slice(-n);
+}
+
+console.log(last([7, 9, 0, -2]));
+console.log(last([7, 9, 0, -2], 3));
+console.log(last([7, 9, 0, -2], 6));
+
+// Q 47 Write a simple JavaScript program to join all elements of the following array into a string.
+// Sample array : myColor = ["Red", "Green", "White", "Black"];
+// Expected Output :
+// "Red,Green,White,Black"
+// "Red,Green,White,Black"
+// "Red+Green+White+Black"
+
+let myColor = ["Red", "Green", "White", "Black"];
+
+let joinedWithComma = myColor.join(",");
+console.log(joinedWithComma);
+
+let joinedWithPlus = myColor.join("+");
+console.log(joinedWithPlus);
+
+// Q 48 Write a JavaScript program that accepts a number as input and inserts dashes (-) between each even number. For example if you accept 025468 the output should be 0-254-6-8.
+
+function insertDashes(num) {
+  let strNum = num.toString();
+  let result = "";
+
+  for (let i = 0; i < strNum.length; i++) {
+    result += strNum[i];
+    if (parseInt(strNum[i]) % 2 === 0 && parseInt(strNum[i + 1]) % 2 === 0) {
+      result += "-";
+    }
+  }
+
+  return result;
+}
+
+console.log(insertDashes("025468"));
+
+// Q 49  Write a JavaScript program to sort the items of an array.
+// Sample array : var arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
+// Sample Output : -4,-3,1,2,3,5,6,7,8
+
+var arrSort1 = [-3, 8, 7, 6, 5, -4, 3, 2, 1];
+
+arrSort1.sort(function (a, b) {
+  return a - b;
+});
+
+console.log(arrSort1.join(","));
+
+// Q 50 Write a JavaScript program to compute the sum and product of an array of integers.
+
+function computeSumAndProduct(arrCompute) {
+  let sum = 0;
+  let product = 1;
+
+  for (let i = 0; i < arrCompute.length; i++) {
+    sum += arrCompute[i];
+    product *= arrCompute[i];
+  }
+
+  return { sum: sum, product: product };
+}
+
+var arrCompute = [1, 2, 3, 4, 5];
+var result = computeSumAndProduct(arrCompute);
+
+console.log("Sum:", result.sum);
+console.log("Product:", result.product);
+
+// 51 Write a JavaScript program to display the colors in the following way.
+
+// Here is the sample array:
+// color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+// o = ["th","st","nd","rd"]
+// Output
+// "1st choice is Blue ."
+// "2nd choice is Green."
+// "3rd choice is Red."
+
+var color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+var o = ["th", "st", "nd", "rd"];
+
+function displayColorChoices(colors) {
+  for (let i = 0; i < colors.length && i < o.length; i++) {
+    let suffix = o[i];
+    let choice = colors[i];
+    console.log(`${i + 1}${suffix} choice is ${choice}.`);
+  }
+}
+
+displayColorChoices(color);
+
+// Q 52 Find the leap years in a given range of years.
+
+function findLeapYears(startYear, endYear) {
+  const leapYears = [];
+
+  for (let year = startYear; year <= endYear; year++) {
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+      leapYears.push(year);
+    }
+  }
+
+  return leapYears;
+}
+
+const leapYearsInRange = findLeapYears(2000, 2024);
+
+console.log("Leap years in the range:", leapYearsInRange);
+
+// Q 53 Write a JavaScript conditional statement to find the largest of five numbers. Display an alert box to show the results.
+// Sample numbers : -5, -2, -6, 0, -1
+// Output : 0
+
+let num1 = -5,
+  num2 = -2,
+  num3 = -6,
+  num4 = 0,
+  num5 = -1;
+
+let largestNum = num1;
+if (num2 > largestNum) {
+  largestNum = num2;
+}
+if (num3 > largestNum) {
+  largestNum = num3;
+}
+if (num4 > largestNum) {
+  largestNum = num4;
+}
+if (num5 > largestNum) {
+  largestNum = num5;
+}
+
+console.log(
+  "The largest number among " +
+    num1 +
+    ", " +
+    num2 +
+    ", " +
+    num3 +
+    ", " +
+    num4 +
+    ", and " +
+    num5 +
+    " is: " +
+    largestNum
+);
+
+// Q 54 Write a JavaScript program that iterates integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for multiples of five print "Buzz". For numbers multiples of both three and five print "FizzBuzz".
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("FizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log("Fizz");
+  } else if (i % 5 === 0) {
+    console.log("Buzz");
+  } else {
+    console.log(i);
+  }
+}

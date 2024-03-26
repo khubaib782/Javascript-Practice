@@ -3,25 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./myScript.js"></script>
     <title>Document</title>
   </head>
   <body>
     <!-- . Q2 Write a JavaScript program to print the current window contents.   -->
-    <button onclick="window.print()">Click Me</button>
-    <p id="rotate"></p>
+    <div class="div">
+      <button onclick="window.print()">Click Me</button>
+      <p id="rotate"></p>
+    </div>
 
     <br />
 
-    <label for="num1">Enter the first number:</label>
-    <input type="number" id="num1" /><br />
+    <div class="div">
+      <label for="num1">Enter the first number:</label>
+      <input type="number" id="num1" /><br />
 
-    <label for="num2">Enter the second number:</label>
-    <input type="number" id="num2" /><br />
+      <label for="num2">Enter the second number:</label>
+      <input type="number" id="num2" /><br />
 
-    <button onclick="multiplyNumbers()">Multiply</button>
-    <button onclick="divideNumbers()">Divide</button>
+      <button onclick="multiplyNumbers()">Multiply</button>
+      <button onclick="divideNumbers()">Divide</button>
 
-    <div id="result"></div>
+      <div id="result"></div>
+    </div>
+    <br />
+    <div class="div">
+      <button id="click_btn">Click Me</button>
+    </div>
   </body>
+  <script src="myScript.js"></script>
 </html>
